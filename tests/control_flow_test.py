@@ -47,3 +47,18 @@ def test_while_loop():
         a -= 1
     assert a == 0
     
+def test_match_switch_statements():
+    x = 1
+    match 1:
+        case 1:
+            x = 2
+        case _:
+            x = 3
+    assert x == 2
+
+    match 2:
+        case 1:
+            x = 2
+        case _:
+            x = 3
+    assert x == 3
