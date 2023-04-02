@@ -16,25 +16,34 @@ def test_iterating_over_a_list():
         y.append(number)
     assert y == [1,2,3]
 
-def test_iterating_over_a_dict():
-    a = {"a": 1}
-    b = {}
-    for k, v in a.items():
-        b[k] = v
-    assert b == a
 
-def test_iterating_n_times():
-    a = 0
-    for x in range(5):
-        a += 1
-    assert a == 5
+def test_early_break():
+    for i in range(10):
+        if i == 5:
+            break
+    assert i == 5
 
-def test_iterating_over_indices():
-    a = [1,2,3]
-    b = 0
-    for i in range(len(a)):
-        b += a[i]
-    assert b == 6
+def test_else():
+    for i in range(10):
+        pass
+    else:
+        # Only runs on normal completion
+        i = 0
+    assert i == 0
+
+def test_early_break_else():
+    for i in range(10):
+        if i == 5:
+            break
+    else:
+        # Only runs on normal completion
+        i = 0
+    assert i == 5
 
 
+def test_while_loop():
+    a = 10
+    while a > 0:
+        a -= 1
+    assert a == 0
     
