@@ -437,6 +437,7 @@ def test_open():
     assert content == "abc\ndef\n"
 
     # with auto-closes. It's not clear how it detects that. is this just a special case in the python standard library?
+    # note: see https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers
     with open("tests/fixtures/test.txt", "r") as file1:
         assert file1.read() == "abc\ndef\n"
 
